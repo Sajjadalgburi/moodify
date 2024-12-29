@@ -5,6 +5,8 @@ import React from "react";
 
 const loggedIn = false;
 
+console.log("hello");
+
 const Home = () => {
   return (
     <main className="overflow-auto min-h-screen">

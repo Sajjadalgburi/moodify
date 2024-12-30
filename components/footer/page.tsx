@@ -1,8 +1,17 @@
+"use client";
 import React from "react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { MdDescription } from "react-icons/md";
+import { useSearchParams } from "next/navigation";
 
 const Footer: React.FC = () => {
+  const searchParams = useSearchParams();
+  const openModal = searchParams.get("modal") as string | null;
+
+  if (openModal) {
+    return null;
+  }
+
   return (
     <footer className="flex flex-col md:flex-row justify-between items-center p-5 fixed bottom-0 w-full">
       <div className="flex gap-5 mb-5 md:mb-0 ">

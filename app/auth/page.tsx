@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useSearchParams } from "next/navigation";
-import { register, login } from "@/utils/actions/auth_actions";
+import { signInAction, signUpAction } from "@/utils/actions/auth_actions";
 import { Home } from "lucide-react";
 import {
   Card,
@@ -23,7 +23,9 @@ import Link from "next/link";
 
 const AuthPage = () => {
   const searchParams = useSearchParams();
-  const auth_type = searchParams.get("q")!;
+  const auth_type = searchParams.get("q") || "login";
+  const error_from_auth = searchParams.get("error") || null;
+  const email_verify_message = searchParams.get("message") || null;
 
   return (
     <main className={`flex justify-center items-center min-h-screen`}>
@@ -67,7 +69,7 @@ const AuthPage = () => {
               ))}
             {/* Submit Button */}
             <Button
-              formAction={auth_type === "login" ? login : register}
+              formAction={auth_type === "login" ? signInAction : signUpAction}
               className="font-medium w-full text-sm sm:text-lg"
               variant="default"
             >
@@ -108,7 +110,17 @@ const AuthPage = () => {
               </Button>
             </Link>
           )}
+          {error_from_auth && (
+            <p className="text-xs sm:text-sm text-red-500 mt-2">
+              {error_from_auth}
+            </p>
+          )}
         </CardFooter>
+        {email_verify_message && (
+          <p className="text-sm sm:text-lg text-white mt-2 text-center">
+            {email_verify_message}
+          </p>
+        )}
       </Card>
     </main>
   );

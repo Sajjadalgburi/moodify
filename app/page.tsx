@@ -7,6 +7,7 @@ import React from "react";
 const loggedIn = false;
 
 const Home = async () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const supabase = await createClient();
 
   return (

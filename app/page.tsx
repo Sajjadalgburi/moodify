@@ -1,15 +1,11 @@
 import Footer from "@/components/footer/page";
 import LandingPage from "@/components/landing_page/page";
 import Header from "@/components/navigation/header";
-import { createClient } from "@/utils/supabase/client";
 import React from "react";
 
 const loggedIn = false;
 
 const Home = async () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const supabase = await createClient();
-
   return (
     <main className="overflow-auto min-h-screen">
       <Header />

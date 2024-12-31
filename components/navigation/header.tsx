@@ -6,11 +6,8 @@ import { useRouter } from "next/navigation";
 import { ModeToggle } from "./../theme-switch/page";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { createClient } from "@/utils/supabase/client";
 
 const Header = () => {
-  const supabase = createClient();
-
   const router = useRouter();
   const searchParams = useSearchParams();
   const openModal = searchParams.get("modal") as string | null;

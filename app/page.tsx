@@ -13,7 +13,7 @@ const Home = async () => {
         Otherwise show logged in page */}
       {loggedIn ? (
         <div>
-          <h2>Logged In</h2>
+          <h2>Logged Inn</h2>
         </div>
       ) : (
         <LandingPage />
